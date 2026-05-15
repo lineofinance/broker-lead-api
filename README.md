@@ -37,4 +37,4 @@ The current version is the one in
 
 ## Contact
 
-Integration questions: <integrations@lineo.finance>
+Integration questions: <engineering@lineo.finance>
