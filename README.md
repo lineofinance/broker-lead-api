@@ -2,6 +2,8 @@
 
 Public OpenAPI contract for the Lineo Finance broker lead onboarding integration.
 
+📖 **Rendered docs:** <https://lineofinance.github.io/broker-lead-api/>
+
 ## What this repo is
 
 This repo is the canonical, public source for the OpenAPI specification that
@@ -14,12 +16,14 @@ overwritten on the next publish.
 
 - [`spec/openapi.yaml`](spec/openapi.yaml) — the OpenAPI 3 specification (YAML)
 - [`spec/openapi.json`](spec/openapi.json) — same specification as JSON
+- [`docs/index.html`](docs/index.html) — Redoc-rendered HTML, served at
+  <https://lineofinance.github.io/broker-lead-api/>
 - [`CHANGELOG.md`](CHANGELOG.md) — human-readable history of contract changes
 
 ## Versioning
 
 The spec follows semantic versioning. Each release is tagged in this repo
-(e.g. `v1.0.1`) and is also visible under
+(e.g. `v1.0.1`) and published under
 [Releases](https://github.com/lineofinance/broker-lead-api/releases). Integrators
 can pin to a specific tag by using the raw URL of that tag, e.g.:
 
@@ -29,14 +33,6 @@ https://raw.githubusercontent.com/lineofinance/broker-lead-api/v1.0.1/spec/opena
 
 The current version is the one in
 [`spec/openapi.yaml`](spec/openapi.yaml) under `info.version`.
-
-## Quick start
-
-To preview the spec rendered as HTML:
-
-- Drop the YAML or its raw URL into <https://redocly.github.io/redoc/>, or
-- Import it into Postman, Insomnia, Stoplight, Swagger Editor, or any
-  OpenAPI-aware tool.
 
 ## Contact
 
