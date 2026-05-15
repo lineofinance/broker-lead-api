@@ -1,7 +1,7 @@
 openapi: 3.0.4
 info:
   title: Lineo Finance — Broker Integration API
-  version: 1.0.1
+  version: 1.0.2
   description: |
     API for broker partners to integrate with the Lineo Finance onboarding and
     data-sharing platform.
@@ -12,12 +12,12 @@ info:
     - **Connection establishment** — link an existing Lineo customer to the broker partner
       for ongoing data sharing.
 
-    ## Lead onboarding (`/v1/broker/leads`)
+    ## Lead onboarding — POST /v1/broker/leads
 
     A single endpoint supports two sub-flows, determined by the `has_existing_tax_advisor`
     Boolean field.
 
-    ### Flow A — Customer without existing tax advisor (`has_existing_tax_advisor: false` or omitted)
+    ### Flow A — Customer without existing tax advisor (has_existing_tax_advisor false or omitted)
 
     1. **Register a lead** — `POST /v1/broker/leads` submits customer data. Lineo internally
        matches a tax advisory partner, generates the service contract PDF, initiates
@@ -29,7 +29,7 @@ info:
        to `active`. Lineo then creates the customer account and sends the activation email
        with a password-set link. **No further API calls are required from the broker.**
 
-    ### Flow B — Customer with existing tax advisor (`has_existing_tax_advisor: true`)
+    ### Flow B — Customer with existing tax advisor (has_existing_tax_advisor true)
 
     1. **Register a lead** — `POST /v1/broker/leads` submits customer data + `tax_advisor_contact`
        and returns `status: "awaiting_third_party"`. No signature link is returned.
@@ -45,7 +45,7 @@ info:
     customer. No separate `POST /v1/broker/connections` call is required for the lead-flow
     case. The `connection.activated` webhook is emitted alongside `lead.status.active`.
 
-    ## Connection establishment for existing customers (`/v1/broker/connections`)
+    ## Connection establishment for existing customers — POST /v1/broker/connections
 
     For customers who are **already** Lineo customers (registered manually, via another
     broker partner, or via a previous lead) and now want to connect their broker account
