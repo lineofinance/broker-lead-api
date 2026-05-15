@@ -1,7 +1,7 @@
 openapi: 3.0.4
 info:
   title: Lineo Finance — Broker Integration API
-  version: 1.0.2
+  version: 1.0.3
   description: |
     API for broker partners to integrate with the Lineo Finance onboarding and
     data-sharing platform.
@@ -898,6 +898,7 @@ components:
             - broker_admin
             - contract_terminated
             - other
+            - null
           description: Reason recorded on revocation (`null` for `active` connections).
         is_existing:
           type: boolean
