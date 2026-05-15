@@ -16,9 +16,10 @@ overwritten on the next publish.
 
 - [`spec/openapi.yaml`](spec/openapi.yaml) — the OpenAPI 3 specification (YAML)
 - [`spec/openapi.json`](spec/openapi.json) — same specification as JSON
-- [`docs/index.html`](docs/index.html) — Redoc-rendered HTML, served at
-  <https://lineofinance.github.io/broker-lead-api/>
 - [`CHANGELOG.md`](CHANGELOG.md) — human-readable history of contract changes
+
+The rendered HTML documentation lives on the `gh-pages` branch and is served
+at <https://lineofinance.github.io/broker-lead-api/>.
 
 ## Versioning
 
