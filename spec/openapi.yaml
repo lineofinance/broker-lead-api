@@ -1,7 +1,7 @@
 openapi: 3.0.4
 info:
   title: Lineo Finance — Broker Integration API
-  version: 1.0.3
+  version: 1.1.0
   description: |
     API for broker partners to integrate with the Lineo Finance onboarding and
     data-sharing platform.
@@ -142,7 +142,7 @@ paths:
                 value:
                   external_customer_reference: vivid-2026-01-abc123
                   company_name: Muster GmbH
-                  hrb_court: Amtsgericht München
+                  hrb_court: D2601
                   hrb_number: HRB 123456
                   street: Teststraße 1
                   postal_code: "10115"
@@ -156,7 +156,7 @@ paths:
                 value:
                   external_customer_reference: vivid-2026-01-abc123
                   company_name: Muster GmbH
-                  hrb_court: Amtsgericht München
+                  hrb_court: D2601
                   hrb_number: HRB 123456
                   street: Teststraße 1
                   postal_code: "10115"
@@ -336,7 +336,7 @@ paths:
                 summary: Connect an existing Lineo customer
                 value:
                   external_customer_reference: vivid-2026-01-abc123
-                  hrb_court: Amtsgericht München
+                  hrb_court: D2601
                   hrb_number: HRB 123456
       responses:
         "201":
@@ -546,10 +546,7 @@ components:
           description: Registered company name.
           example: Muster GmbH
         hrb_court:
-          type: string
-          maxLength: 200
-          description: The Handelsregister court (e.g. "Amtsgericht München").
-          example: Amtsgericht München
+          $ref: "#/components/schemas/XJustizGerichtsId"
         hrb_number:
           type: string
           maxLength: 50
@@ -847,10 +844,7 @@ components:
             broker's API. Must be unique per broker.
           example: vivid-2026-01-abc123
         hrb_court:
-          type: string
-          maxLength: 200
-          description: The Handelsregister court (e.g. "Amtsgericht München").
-          example: Amtsgericht München
+          $ref: "#/components/schemas/XJustizGerichtsId"
         hrb_number:
           type: string
           maxLength: 50
@@ -906,6 +900,164 @@ components:
             `true` if the response represents an idempotent hit (the connection already
             existed). `false` for newly created connections. Always `false` on `GET` and
             `DELETE` responses.
+
+    XJustizGerichtsId:
+      type: string
+      description: >
+        German court identifier as an XJustiz GDS.Gerichte code (the
+        official XÖV codelist). Example: `D2601` = Amtsgericht München.
+      enum:
+        - B1204
+        - B1601
+        - B2609
+        - B2805
+        - D2102
+        - D2201
+        - D2304
+        - D2404
+        - D2505
+        - D2601
+        - D2803
+        - D2910
+        - D3101
+        - D3201
+        - D3304
+        - D3310
+        - D3410
+        - D3413
+        - D3508
+        - D4102
+        - D4201
+        - D4301
+        - D4401
+        - D4501
+        - D4608
+        - D4708
+        - D5701
+        - F1103
+        - G1103
+        - G1207
+        - G1309
+        - G1312
+        - H1101
+        - K1101
+        - M1103
+        - M1114
+        - M1201
+        - M1202
+        - M1203
+        - M1301
+        - M1305
+        - M1405
+        - M1406
+        - M1502
+        - M1602
+        - M1603
+        - M1607
+        - M1608
+        - M1706
+        - M1710
+        - M1809
+        - M1906
+        - N1105
+        - N1206
+        - N1209
+        - N1308
+        - P1103
+        - P2106
+        - P2204
+        - P2305
+        - P2408
+        - P2507
+        - P2613
+        - P2716
+        - P3101
+        - P3210
+        - P3313
+        - R1101
+        - R1102
+        - R1105
+        - R1202
+        - R1304
+        - R1402
+        - R1504
+        - R1608
+        - R1901
+        - R2101
+        - R2103
+        - R2108
+        - R2201
+        - R2204
+        - R2307
+        - R2402
+        - R2404
+        - R2503
+        - R2507
+        - R2602
+        - R2604
+        - R2706
+        - R2707
+        - R2713
+        - R2809
+        - R2909
+        - R3101
+        - R3103
+        - R3201
+        - R3208
+        - R3306
+        - T2101
+        - T2210
+        - T2214
+        - T2304
+        - T2408
+        - T3104
+        - T3201
+        - T3304
+        - T3403
+        - U1104
+        - U1206
+        - U1308
+        - V1102
+        - V1103
+        - V1104
+        - V1105
+        - V1107
+        - V1109
+        - V1110
+        - V1111
+        - V1112
+        - V1115
+        - W1215
+        - X1112
+        - X1321
+        - X1517
+        - X1721
+        - Y1101
+        - Y1102
+        - Y1105
+        - Y1106
+        - Y1108
+        - Y1109
+        - Y1110
+        - Y1111
+        - Y1112
+        - Y1113
+        - Y1114
+        - Y1201
+        - Y1203
+        - Y1205
+        - Y1206
+        - Y1208
+        - Y1209
+        - Y1210
+        - Y1214
+        - Y1301
+        - Y1302
+        - Y1303
+        - Y1304
+        - Y1307
+        - Y1308
+      example: D2601
 
     ProblemDetails:
       type: object
